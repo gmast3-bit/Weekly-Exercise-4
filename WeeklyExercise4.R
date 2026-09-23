@@ -19,4 +19,16 @@ delegations_1992 <- olympics %>%
   arrange(desc(athletes))
 delegations_1992
 
+# b. Gold medals over time for 5 countries
+five_countries <- c("United States", "France", "Germany", "Russia", "China")
 
+gold_five <- olympics %>%
+  filter(country %in% five_countries)
+
+ggplot(gold_five, aes(x = year, y= gold, color = country)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Gold medals won over time",
+       x = "Year",
+       y = "Number of gold medals",
+       color = "Country")
