@@ -20,6 +20,14 @@ olympics <- olympics %>%
   mutate(total.medals = gold + silver + bronze)
 head(olympics)
 
+# Total gold medals won by each country
+gold_by_country <- olympics %>%
+  group_by(country) %>%
+  summarise(total_gold = sum(gold, na.rm = TRUE)) %>%
+  filter(total_gold > 0) %>%
+  arrange(desc(total_gold))
+print(gold_by_country, n = Inf)
+
 
 
 
