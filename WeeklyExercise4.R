@@ -6,8 +6,25 @@ install.packages("usethis")
 library(usethis)
 git_default_branch()
 
-# Step 5. Create a new branch DEV
-install.packages("gert")
-library(gert)
+# Step 6. Olympics data analysis
+install.packages("tidyverse")
+library(readr)
+library(tidyverse)
+library(ggplot2)
 
-git_branch_create("DEV")
+olympics <- read_csv("Olympics.csv")
+glimpse(olympics)
+
+# Creating total medals and adding it to the dataset
+olympics <- olympics %>%
+  mutate(total.medals = gold + silver + bronze)
+head(olympics)
+
+
+
+
+
+
+
+
+
