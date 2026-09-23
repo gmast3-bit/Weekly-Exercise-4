@@ -28,6 +28,11 @@ gold_by_country <- olympics %>%
   arrange(desc(total_gold))
 print(gold_by_country, n = Inf)
 
+# Total medals given out each year
+medals_by_year <- olympics %>%
+  group_by(year) %>%
+  summarise(total.medals = sum(total.medals, na.rm = TRUE))
+print(medals_by_year, n = Inf)
 
 
 
